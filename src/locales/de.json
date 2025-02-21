@@ -2,6 +2,7 @@
   "chat": {
     "hello": "Hi, schön, dass Sie hier sind.\nIch kann Ihnen helfen, AI in Ihrem Unternehmen einzusetzen, um die Effizienz zu erhöhen.\nIch arbeite mit Menschen zusammen, die sich auskennen, und mein Ziel ist es, eines Tages komplett autonom Unternehmen zu verbessern.\nWir könnten jetzt gleich, in diesem Chat Ihr Unternehmen analysieren. Ich greife dabei auf Erfahrungen aus Projekten zurück, die ich bereits erfolgreich durchgeführt habe.",
     "input": "Schreiben Sie mir...",
+    "message_placeholder": "Nachricht eingeben...",
     "send": "Senden"
   }
 }

@@ -14,6 +14,10 @@ export default defineConfig({
               changeOrigin: true,
               xfwd: true,
               rewrite: (path) => path.replace(/^\/api/, '')
+          },
+          '/ws': {
+              target: 'ws://localhost:8000',
+              ws: true,
           }
       }
   }

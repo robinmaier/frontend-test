@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import './style.css'
 import App from './App.vue'
 import router from './router'
-
 import { createI18n } from 'vue-i18n'
 
 // Load messages from JSON files
@@ -22,7 +22,10 @@ const i18n = createI18n({
   messages, 
 })
 
-createApp(App)
-  .use(router)
-  .use(i18n) // Use the i18n instance
-  .mount('#app')
+const pinia = createPinia()
+const app = createApp(App)
+
+app.use(router)
+   .use(i18n)
+   .use(pinia)
+   .mount('#app')

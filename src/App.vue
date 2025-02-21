@@ -9,7 +9,7 @@ import { RouterView } from 'vue-router'
       <img src="/aptima.svg" class="logo" alt="Vite logo" />
       <div class="logo-text">
         <h1>
-          lampion 
+          lula 
         </h1>
         <p>
           bringing AI to your company 
