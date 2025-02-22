@@ -33,7 +33,6 @@ const handleKeydown = (event: KeyboardEvent) => {
   }
 }
 
-// Add a method to safely render markdown
 const renderMarkdown = (content: string) => {
   const rawHtml = marked.parse(content, { async: false }) as string
   return DOMPurify.sanitize(rawHtml)
@@ -49,10 +48,10 @@ const renderMarkdown = (content: string) => {
         v-for="(message, index) in service?.messages" 
         :key="index"
         class="chat-message" 
-        :class="message?.role"
+        :class="message.role"
       >
-        <div v-if="message?.role === 'assistant'" v-html="renderMarkdown(message.content)"></div>
-        <template v-else>{{ message?.content }}</template>
+        <div v-if="message.role === 'assistant'" v-html="renderMarkdown(message.content)"></div>
+        <template v-else>{{ message.content }}</template>
       </div>
     </div>
     <div class="chat-input">
