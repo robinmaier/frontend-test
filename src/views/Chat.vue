@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useWebSocketStore } from '../stores/websocketStore'
 import { storeToRefs } from 'pinia'
 import { marked } from 'marked'
@@ -10,6 +10,16 @@ const { t } = useI18n()
 const store = useWebSocketStore()
 const { service } = storeToRefs(store)
 const userMessage = ref('')
+const conversation = ref<HTMLElement | null>(null)
+
+// Auto-scroll when messages change
+watch(() => service.value?.messages, () => {
+  setTimeout(() => {
+    if (conversation.value) {
+      conversation.value.scrollTop = conversation.value.scrollHeight
+    }
+  }, 0)
+}, { deep: true })
 
 onMounted(() => {
   store.initialize()
@@ -43,7 +53,7 @@ const renderMarkdown = (content: string) => {
   <div class="chat-container">
     <div class="chat-header">
     </div>
-    <div class="conversation">
+    <div ref="conversation" class="conversation">
       <div 
         v-for="(message, index) in service?.messages" 
         :key="index"
